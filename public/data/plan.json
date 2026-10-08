@@ -1,0 +1,240 @@
+{
+  "teamName": "Example",
+  "repo": "AY2627S1-CS2103T-T12-4/tp",
+  "milestone": {
+    "number": 3,
+    "title": "v1.3",
+    "due": "2026-10-15"
+  },
+  "refreshed": "2026-10-08",
+  "headline": "An example week from a CS2103T team: run `npm run setup` to replace it with yours.",
+  "checkpoints": [
+    {
+      "date": "2026-10-09",
+      "text": "#49 merged, so four tasks can start"
+    },
+    {
+      "date": "2026-10-13",
+      "text": "#81 merged last, after the other branches"
+    },
+    {
+      "date": "2026-10-15",
+      "text": "v1.3 due"
+    }
+  ],
+  "team": [
+    {
+      "login": "teammate_a",
+      "name": "Alex"
+    },
+    {
+      "login": "teammate_b",
+      "name": "Bea"
+    },
+    {
+      "login": "teammate_c",
+      "name": "Chen"
+    },
+    {
+      "login": "teammate_d",
+      "name": "Dev"
+    },
+    {
+      "login": "teammate_e",
+      "name": "Eli"
+    }
+  ],
+  "bundles": [
+    {
+      "id": "plug-in",
+      "name": "Plug TAssist in",
+      "tagline": "Wire the new data into the app first, then put it on screen.",
+      "issues": [
+        49,
+        52
+      ]
+    },
+    {
+      "id": "save-file",
+      "name": "New save file, old code out",
+      "tagline": "Make TAssist data survive a restart, then delete AddressBook for good.",
+      "issues": [
+        80,
+        81
+      ]
+    },
+    {
+      "id": "groups",
+      "name": "Groups, then attendance",
+      "tagline": "Tutorial groups early in the week, attendance once weekly records land.",
+      "issues": [
+        50,
+        54
+      ]
+    },
+    {
+      "id": "students",
+      "name": "Students, then participation",
+      "tagline": "The student roster early in the week, participation scores once weekly records land.",
+      "issues": [
+        51,
+        55
+      ]
+    },
+    {
+      "id": "weekly",
+      "name": "Weekly records, plus UI docs",
+      "tagline": "Build the shared engine two bundles are waiting on, then document the UI.",
+      "issues": [
+        53,
+        61
+      ]
+    }
+  ],
+  "issues": {
+    "49": {
+      "title": "Put TAssist behind the Model",
+      "short": "Model switch",
+      "effort": 2,
+      "blockedBy": [],
+      "headline": "The app's Model starts holding groups and students, not just contacts.",
+      "bullets": [
+        "Adds groups and students next to the old AddressBook, so nothing breaks yet.",
+        "Gives the GUI live lists to watch: the active group and its students.",
+        "Small on purpose. Aim to merge by Friday."
+      ]
+    },
+    "52": {
+      "title": "Show the active group and its students in the GUI",
+      "short": "GUI",
+      "effort": 3.5,
+      "blockedBy": [
+        49
+      ],
+      "headline": "The window shows the real active group and its students instead of AddressBook contacts.",
+      "bullets": [
+        "Replaces the old person list on the Students screen.",
+        "Updates as soon as group or student data changes.",
+        "Shows a helpful empty state when there are no groups or students, and still fits 1280×720."
+      ],
+      "early": "Build the layout today against TAssistBuilder fixtures, then connect it to the Model once #49 lands."
+    },
+    "80": {
+      "title": "Save and load the TAssist data file",
+      "short": "Data file",
+      "effort": 3.5,
+      "blockedBy": [
+        49
+      ],
+      "headline": "Groups and students are still there after you close and reopen the app.",
+      "bullets": [
+        "Saves groups, students and the active group to a JSON file you can edit by hand.",
+        "No file means start empty. A broken file means start empty, log why, and never crash.",
+        "Leaves room for attendance, participation and assignments to save their own records."
+      ],
+      "early": "The JSON adapters only need the existing Group and Student classes, so start today. Agree the weekly-records format with whoever takes #53."
+    },
+    "81": {
+      "title": "Remove AddressBook code",
+      "short": "Remove AddressBook",
+      "effort": 2.5,
+      "blockedBy": [
+        49,
+        80,
+        52
+      ],
+      "headline": "The last traces of contacts, phones and tags disappear.",
+      "bullets": [
+        "Deletes AddressBook's person commands, classes, sample data, test data and tests.",
+        "The app opens as an empty TAssist, and help, exit and view still work.",
+        "Merge it last so it doesn't conflict with other open branches."
+      ]
+    },
+    "50": {
+      "title": "Manage tutorial groups: add, list and switch",
+      "short": "Groups",
+      "effort": 3,
+      "blockedBy": [
+        49
+      ],
+      "headline": "A TA can create tutorial groups and switch between them.",
+      "bullets": [
+        "`group add g/T01`, `group list`, `group use g/T02`.",
+        "T01 and t01 count as the same group, and a new group becomes the active one.",
+        "Students, attendance and scores all live inside the active group."
+      ]
+    },
+    "54": {
+      "title": "Record and view weekly attendance",
+      "short": "Attendance",
+      "effort": 2,
+      "blockedBy": [
+        53
+      ],
+      "headline": "A TA can mark each student present or absent for a week.",
+      "bullets": [
+        "`attendance mark id/A0123456X w/3 s/present`, then `attendance list w/3`.",
+        "Marking the same week again corrects the earlier mark.",
+        "Mostly a value type and messages on top of the weekly-records engine."
+      ]
+    },
+    "51": {
+      "title": "Manage students: add, list and delete",
+      "short": "Students",
+      "effort": 3,
+      "blockedBy": [
+        49
+      ],
+      "headline": "A TA can add, list and remove students in the active group.",
+      "bullets": [
+        "`student add n/Alice Tan id/A0123456X`, `student list`, `student delete id/A0123456X`.",
+        "Student IDs are unique within a group, and two students can share a name.",
+        "Tests set the active group directly, so this doesn't wait for #50."
+      ]
+    },
+    "55": {
+      "title": "Record and view weekly participation scores",
+      "short": "Participation",
+      "effort": 2,
+      "blockedBy": [
+        53
+      ],
+      "headline": "A TA can give each student a participation score from 0 to 5 for a week.",
+      "bullets": [
+        "`participation set id/A0123456X w/3 s/4`, then `participation list w/3`.",
+        "Setting a score again replaces it. Bad input never touches existing scores.",
+        "Same engine as attendance, with a different value type."
+      ]
+    },
+    "53": {
+      "title": "Add shared weekly record mechanism",
+      "short": "Weekly records",
+      "effort": 4,
+      "blockedBy": [
+        49,
+        80
+      ],
+      "headline": "One engine for \"a value per student per week\", shared by attendance and participation.",
+      "bullets": [
+        "Weeks 1 to 13. Entering the same week again replaces the record instead of duplicating it.",
+        "Lists a whole group for a week and shows \"Not recorded\" where there's no record.",
+        "Written once because duplicated code costs marks."
+      ],
+      "early": "It builds on the existing Student and Group classes, so start today and merge after #49 and #80."
+    },
+    "61": {
+      "title": "Upload UI mock-ups and document the implemented UI design",
+      "short": "UI docs",
+      "effort": 1.5,
+      "blockedBy": [],
+      "headline": "The guides show what the app actually looks like.",
+      "bullets": [
+        "Puts the original mock-ups in the repo.",
+        "Adds screenshots of the real UI to the User Guide and Developer Guide.",
+        "Lists where the real UI differs from the mock-ups."
+      ],
+      "early": "Upload the mock-ups now. Take the screenshots after #52 lands so they show real data."
+    }
+  },
+  "prs": {}
+}

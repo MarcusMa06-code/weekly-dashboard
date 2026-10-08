@@ -1,0 +1,14 @@
+{
+  "name": "weekly-dashboard",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "setup": "node scripts/setup.mjs",
+    "dev": "wrangler dev",
+    "check": "node scripts/check-plan.mjs",
+    "deploy": "node scripts/check-plan.mjs && wrangler deploy"
+  },
+  "devDependencies": {
+    "wrangler": "4.148.0"
+  }
+}

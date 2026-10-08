@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>This Week</title>
+  <meta name="description" content="What the team is building this week, how it connects, and who has which part.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+  <link rel="stylesheet" href="/style.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="wordmark"><span id="team-name"></span> <span>this week</span></div>
+    <div id="account" class="account"></div>
+  </header>
+
+  <main>
+    <section id="week" class="week" aria-live="polite"></section>
+    <div id="notice" class="notice" hidden></div>
+
+    <section id="team-block" class="block">
+      <h2>Who's on what</h2>
+      <div id="team" class="team"></div>
+    </section>
+
+    <section id="map-block" class="block">
+      <div class="block-head">
+        <h2>How the work connects</h2>
+        <p class="hint">Hover or tap a task to see what it unlocks.</p>
+      </div>
+      <div id="map" class="map"></div>
+    </section>
+
+    <section id="bundles-block" class="block">
+      <div class="block-head">
+        <h2 id="bundles-title">Pick a bundle</h2>
+        <p id="bundles-hint" class="hint"></p>
+      </div>
+      <div id="bundles" class="bundles"></div>
+    </section>
+  </main>
+
+  <footer id="footer" class="footer"></footer>
+</body>
+</html>

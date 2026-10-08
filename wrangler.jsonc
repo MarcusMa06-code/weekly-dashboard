@@ -1,0 +1,21 @@
+{
+  // Run `npm run setup` to fill this in for your team.
+  "name": "weekly-dashboard",
+  "main": "src/worker.js",
+  "compatibility_date": "2025-10-01",
+  "assets": {
+    "directory": "./public",
+    "binding": "ASSETS"
+  },
+  "workers_dev": true,
+  "preview_urls": false,
+  "vars": {
+    // Public client ID of the GitHub App used for "Sign in with GitHub".
+    "GITHUB_CLIENT_ID": "REPLACE_WITH_GITHUB_APP_CLIENT_ID",
+    // The only GitHub accounts allowed to sign in and assign issues. Everyone else is turned away.
+    "TEAM_LOGINS": ""
+  }
+  // Secrets (set in Cloudflare under Settings → Variables and Secrets, type Secret):
+  //   GITHUB_CLIENT_SECRET  the GitHub App's client secret
+  //   SESSION_SECRET        any long random string; encrypts the sign-in cookie
+}
